@@ -1,5 +1,5 @@
 package com.test;
-//git²âÊÔ
+
 import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -7,11 +7,11 @@ import java.util.concurrent.FutureTask;
 
 /**
  * 
- * Ïß³Ì´´½¨µÄÈıÖÖ·½Ê½£º¼Ì³ĞThread,ÊµÏÖrunable,ÊµÏÖCallable
+ * çº¿ç¨‹åˆ›å»ºçš„ä¸‰ç§æ–¹å¼ï¼šç»§æ‰¿Thread,å®ç°runable,å®ç°Callable
  * 
- * call·½·¨¸úrun·½·¨µÄ±È½Ï: 1.callÓĞ·µ»ØÖµ runÃ»ÓĞ·µ»ØÖµ 2.callÉùÃ÷ÁËÒì³£(Exception),runÃ»ÉùÃ÷Òì³£
+ * callæ–¹æ³•è·Ÿrunæ–¹æ³•çš„æ¯”è¾ƒ: 1.callæœ‰è¿”å›å€¼ runæ²¡æœ‰è¿”å›å€¼ 2.callå£°æ˜äº†å¼‚å¸¸(Exception),runæ²¡å£°æ˜å¼‚å¸¸
  * 
- * ĞèÇó: ´´½¨Ò»¸öÏß³Ì£¬²úÉúÒ»¸öÊı(10ÒÔÄÚµÄÕûÊı)£¬»ñÈ¡Õâ¸öÊı
+ * éœ€æ±‚: åˆ›å»ºä¸€ä¸ªçº¿ç¨‹ï¼Œäº§ç”Ÿä¸€ä¸ªæ•°(10ä»¥å†…çš„æ•´æ•°)ï¼Œè·å–è¿™ä¸ªæ•°
  */
 public class ThreadAdd implements Callable<Integer> {
 
@@ -21,19 +21,19 @@ public class ThreadAdd implements Callable<Integer> {
 	}
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-		// ´´½¨Callable¶ÔÏó
+		// åˆ›å»ºCallableå¯¹è±¡
 		Callable<Integer> callAble = new ThreadAdd();
-		// ½«callAble×ª»»ÎªRunable
+		// å°†callAbleè½¬æ¢ä¸ºRunable
 		FutureTask<Integer> ft = new FutureTask<>(callAble);
-		// ´´½¨Ïß³Ì
+		// åˆ›å»ºçº¿ç¨‹
 		Thread t = new Thread(ft);
-		System.out.println("Ïß³ÌÊÇ·ñ½áÊø:" + ft.isDone());
-		// Æô¶¯Ïß³Ì
+		System.out.println("çº¿ç¨‹æ˜¯å¦ç»“æŸ:" + ft.isDone());
+		// å¯åŠ¨çº¿ç¨‹
 		t.start();
-		// »ñÈ¡Ïß³ÌµÄ·µ»Ø½á¹û
+		// è·å–çº¿ç¨‹çš„è¿”å›ç»“æœ
 		Integer i = ft.get();
 		System.out.println(i);
-		System.out.println("Ïß³ÌÊÇ·ñ½áÊø:" + ft.isDone());
+		System.out.println("çº¿ç¨‹æ˜¯å¦ç»“æŸ:" + ft.isDone());
 	}
 
 }
